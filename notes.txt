@@ -1,0 +1,5 @@
+restartis mere arshveba? 
+NO MORE THAN 30 char for note.
+Data Base conn.
+Data Base output into notes.
+Data Base input from create notes.
