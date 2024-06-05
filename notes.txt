@@ -1,5 +1,4 @@
-restartis mere arshveba? 
+Main PRIO - amatebs databaseshi, ar anaxlebs frontze.
 NO MORE THAN 30 char for note.
-Data Base conn.
-Data Base output into notes.
-Data Base input from create notes.
+Data Base input from create notes - <IWP>.
+Delate from Data Base, Front .
