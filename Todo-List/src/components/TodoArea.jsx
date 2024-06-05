@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from "axios";
 
-function TodoArea({ items, delItem }) {
+function TodoArea({ fetchIndex, items, delItem }) {
   const [backEndData, setBackEndData] = useState([]);
 
   const axali = async() => {
@@ -14,6 +14,10 @@ function TodoArea({ items, delItem }) {
   useEffect(() => {
     axali();
   }, []);
+
+  useEffect(() => {
+    axali();
+  }, [fetchIndex]);
 
   return (
     <div className="todo-area">

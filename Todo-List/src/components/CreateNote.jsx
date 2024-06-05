@@ -15,6 +15,7 @@ function CreateNote(props) {
     event.preventDefault();
     try {
       const response = await axios.post("http://localhost:4000/home", { title: inputText });
+      props.handleAdd()
       console.log("Response data:", response.data);
       setInputText("");
     } catch(err) {

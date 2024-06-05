@@ -4,6 +4,7 @@ import TodoArea from "./TodoArea";
 
 function CreateArea() {
   const [items, setItems] = useState([]);
+  const [fetchIndex, setFetchIndex] = useState(0);
 
   function addItem(inputText) {
     setItems((prevItems) => {
@@ -21,8 +22,14 @@ function CreateArea() {
 
   return (
     <div className="main-content">
-      <CreateNote onAdd={addItem} />
+      <CreateNote
+       onAdd={addItem} 
+       handleAdd = {() => {
+        setFetchIndex(fetchIndex + 1)
+       }}
+      />
       <TodoArea
+        fetchIndex={fetchIndex}
         items={items}
         delItem={delItem}
       />
