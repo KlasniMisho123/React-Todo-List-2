@@ -24,21 +24,23 @@ function CreateNote(props) {
   };
 
     return(
-        <div className="create-note">
-          <header className="todo-header"> Create Todo</header>
-            <form className="input-div" onSubmit={handleSubmit}>
-              <input
-              onChange={handleChange}
-              type="text"
-              value={inputText}
-              placeholder="Enter item name"
-              />
-              
-              <button type="submit">
-                <AddIcon />
-              </button>
-            </form>
-        </div>
+      <div className="create-note">
+      <header className="todo-header">Create Todo</header>
+      {inputText.length > 30 && <div>Please use 30 characters at max</div>}
+      <form className="input-div" onSubmit={handleSubmit}>
+      
+        <input
+          onChange={handleChange}
+          type="text"
+          value={inputText}
+          placeholder="Enter Todo"
+        />
+        <button type="submit">
+          <AddIcon />
+        </button>
+        
+      </form>
+    </div>    
     )
 };
 

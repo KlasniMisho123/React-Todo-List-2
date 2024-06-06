@@ -24,11 +24,9 @@ const db = new pg.Client({
 db.connect();
 
 app.get("/home", async (req, res) => {
-    console.log("RAME")
     try{
         const result = await db.query("SELECT * FROM todonotes ORDER BY id ASC");
         const titles = result.rows.map(row => row.title);
-        console.log(titles)
         res.json(titles);
     }catch (err) {
         console.log(err)
@@ -36,9 +34,9 @@ app.get("/home", async (req, res) => {
 });
 
 app.post("/home", async (req, res) => {
-    console.log("P: RAME");
+    console.log("POST-HOME")
     const title = req.body.title;
-    try {
+    try { 
         const result = await db.query("INSERT INTO todonotes (title) VALUES ($1)", [title]);
         console.log(title);
         res.status(201).send("Item added successfully");
@@ -48,9 +46,19 @@ app.post("/home", async (req, res) => {
     }
 });
 
-// app.delete("/home", async (req,res) => {
+app.delete("/home", async (req, res) => {
+console.log("Del-HOME")
+const del_title = req.body.del_title;
+try {
+    const result = await db.query("DELETE FROM todonotes WHERE title = $1", [del_title]);
+    console.log(del_title);
+    res.status(201).send("Item Removed successfully");
+} catch(err) {
+    console.error("Error handling POST /home:", err);
+    res.status(500).send(err);
+}
+})
 
-// })
 
 
 app.listen(port, () => {
